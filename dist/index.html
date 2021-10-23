@@ -424,12 +424,12 @@
                             </div>
 
                             <div class="spollers-block__buttons">
-								<a
-								href="#"
-								class="btn btn-micromodal-open"
-								data-micromodal-open="modal-news"
-								>Записаться</a
-							>
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
                             </div>
                         </div>
                     </div>
@@ -484,12 +484,12 @@
                             </div>
 
                             <div class="spollers-block__buttons">
-								<a
-								href="#"
-								class="btn btn-micromodal-open"
-								data-micromodal-open="modal-news"
-								>Записаться</a
-							>
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
                             </div>
                         </div>
                     </div>
@@ -537,12 +537,12 @@
                             </div>
 
                             <div class="spollers-block__buttons">
-								<a
-								href="#"
-								class="btn btn-micromodal-open"
-								data-micromodal-open="modal-news"
-								>Записаться</a
-							>
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
                             </div>
                         </div>
                     </div>
@@ -596,17 +596,48 @@
                             </div>
 
                             <div class="spollers-block__buttons">
-								<a
-								href="#"
-								class="btn btn-micromodal-open"
-								data-micromodal-open="modal-news"
-								>Записаться</a
-							>
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <script>
+                const callBackThanks =
+                    document.querySelector(".callback__thanks")
+                function send(event, php) {
+                    console.log("Отправка запроса")
+                    event.preventDefault
+                        ? event.preventDefault()
+                        : (event.returnValue = false)
+                    var req = new XMLHttpRequest()
+                    req.open("POST", php, true)
+                    req.onload = function () {
+                        if (req.status >= 200 && req.status < 400) {
+                            json = JSON.parse(this.response)
+                            if (json.result == "success") {
+                                callBackThanks.classList.add("show")
+                                event.target.reset()
+                                console.log("Сообщение отправлено")
+                            } else {
+                                // Если произошла ошибка
+                                console.log("Ошибка. Сообщение не отправлено")
+                            }
+                        } else {
+                            console.log("Ошибка сервера. Номер: " + req.status)
+                        }
+                    }
+                    req.onerror = function () {
+                        console.log("Ошибка отправки запроса")
+                    }
+                    req.send(new FormData(event.target))
+                }
+            </script>
             <div class="modal micromodal-slide" id="modal-news" aria-hidden="true">
 	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
 
@@ -626,8 +657,9 @@
 							<form class="contact" enctype="multipart/form-data" method="post" id="form"
 								onsubmit="send(event, 'sendemail.php')">
 								<div class="form__field field-title">
-									<input type="text" name="name" id="name" class="field" autocomplete="off"
-										placeholder="Иван Иванов" required>
+									<textarea type="text" name="title" id="title" class="input-title" autocomplete="off"
+										placeholder="" readonly
+										></textarea>
 								</div>
 
 								<div class="form__field field-name">
@@ -680,8 +712,8 @@
 								}
 							</script>
 							<div class="callback__thanks">
-								<p>Спасибо, что выбрали нас! </p>
-								<p>Ваш запрос принят, в ближайшее время с Вами свяжется наш менеджер.</p>
+								<p>Спасибо за заявку!</p>
+								<p>Подтверждение будет отправленно после обработки.</p>
 							</div>		
 						</div>
 					</div>

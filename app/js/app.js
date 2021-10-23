@@ -1,8 +1,68 @@
 // Import vendor jQuery plugin example
 // import '~/app/libs/mmenu/dist/mmenu.js'
 import MicroModal from "micromodal" // es6 module
+import Swiper, {
+    Navigation,
+    Pagination,
+    EffectCoverflow,
+    Autoplay,
+} from "swiper"
+Swiper.use([Navigation, Pagination, EffectCoverflow, Autoplay])
 
 document.addEventListener("DOMContentLoaded", () => {
+    const swiper = new Swiper(".swiper", {
+        loop: true,
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 50,
+            modifier: 1,
+            slideShadows: true,
+        },
+        // If we need pagination
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: ".swiper-scrollbar",
+        },
+        autoHeight: true,
+        autoplay: {
+            delay: 2000,
+            disableOnInteraction: true,
+            pauseOnMouseEnter: true,
+        },
+        speed: 600,
+        slidesPerView: 3,
+        breakpoints: {
+            "@0.00": {
+                slidesPerView: 1,
+            },
+            "@0.75": {
+                slidesPerView: 1,
+            },
+            "@1.00": {
+                slidesPerView: 2,
+            },
+            "@1.50": {
+                slidesPerView: 3,
+            },
+        },
+    })
+
     const initModal = () => {
         MicroModal.init({
             openTrigger: "data-micromodal-open",
@@ -259,21 +319,21 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // Заголовок модального окна
-	const spollersBlockItem = document.querySelectorAll(".spollers-block__item")
-	const formField = document.querySelectorAll(".form__field")
-	spollersBlockItem.forEach(item => {
-		item.addEventListener("click", (event) => {
-			event.preventDefault()
-			let el = event.currentTarget
-			let el2 = event.target	
-			if(el2.classList.contains('btn-micromodal-open')) {
-				for( let field of formField) {
-					if(field.classList.contains('field-title')) {
-						field.childNodes[1].value = ''
-						field.childNodes[1].value = el.childNodes[1].innerText
-					}
-				}
-			}		
-		})
-	})    
+    const spollersBlockItem = document.querySelectorAll(".spollers-block__item")
+    const formField = document.querySelectorAll(".form__field")
+    spollersBlockItem.forEach((item) => {
+        item.addEventListener("click", (event) => {
+            event.preventDefault()
+            let el = event.currentTarget
+            let el2 = event.target
+            if (el2.classList.contains("btn-micromodal-open")) {
+                for (let field of formField) {
+                    if (field.classList.contains("field-title")) {
+                        field.childNodes[1].value = ""
+                        field.childNodes[1].value = el.childNodes[1].innerText
+                    }
+                }
+            }
+        })
+    })
 })

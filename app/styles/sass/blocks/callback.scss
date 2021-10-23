@@ -47,6 +47,7 @@
 			margin-bottom: 10px;
 			border-bottom: 1px solid #d9d9d9;
 			background-color: transparent;
+			
 			&.field-message {
 				margin-bottom: 30px;
 			}
@@ -70,6 +71,7 @@
 				background-color: transparent;
 				border: none;
 				transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+				width: 100%;
 				&::-webkit-input-placeholder {
 					opacity: 1;
 					transition: opacity 0.3s ease;
