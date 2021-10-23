@@ -1,11 +1,631 @@
 <!--#set var="title" value="OptimizedHTML 5" -->
 <!--#include virtual="/parts/header.html" -->
+<canvas id="nokey" width="800" height="800"></canvas>
+<div class="wrapper">
+    <header class="header" id="stick_menu">
+        <div class="header__body __container">
+            <div class="header__burger">
+                <span class="burger-top"></span>
+                <span class="burger-middle">Menu</span>
+                <span class="burger-bottom"></span>
+            </div>
 
-	<div style="max-width: 700px; margin: auto; padding-top: 100px; text-align: center;">
+            <nav class="header__menu">
+                <ul class="header__list">
+                    <li class="header__li">
+                        <a
+                            class="header__link active button-go-to"
+                            href="#"
+                            data-goto="body"
+                            >Главная</a
+                        >
+                    </li>
+                    <li class="header__li">
+                        <a
+                            href="#"
+                            class="header__link button-go-to"
+                            data-goto=".abaut-me"
+                            >Обо мне</a
+                        >
+                    </li>
+                    <li class="header__li">
+                        <a
+                            href="#"
+                            class="header__link button-go-to"
+                            data-goto=".consultations"
+                            >Консультации</a
+                        >
+                    </li>
+                    <li class="li_logo">
+                        <a href="#" class="header__logo">
+                            <i class="fas fa-yin-yang"></i>
+                            <span>Yana Astro</span>
+                        </a>
+                    </li>
+                    <li class="header__li">
+                        <a
+                            href="#"
+                            class="header__link button-go-to"
+                            data-goto=".feedback"
+                            >Отзывы</a
+                        >
+                    </li>
 
-		<img src="images/dist/tild3939-6132-4232-b666-653735666161_orig.png" alt="Start HTML5 Template" style="width: 100%"><br><br>
-		<h2 class="heading">Сайт в разработке</h2>
+                    <li class="header__li">
+                        <a href="#" class="header__link">Бла бла</a>
+                    </li>
+                    <li class="header__li">
+                        <a
+                            href="#"
+                            class="header__link button-go-to"
+                            data-goto="footer"
+                            >Контакты</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="page">
+        <section class="services __container section" data-active=".services">
+            <div class="services__title">
+                <h1>Yana Astro</h1>
+                <p>Астролог Яна Городилкина | Москва</p>
+            </div>
+            <div class="services__row">
+                <div class="services__column">
+                    <div class="services__items">
+                        <div class="item-icon">
+                            <i class="fas fa-pencil-alt"></i>
+                        </div>
+                        <div class="item-title">Консультации</div>
+                        Персональные Консультации, офлайн и онлайн: таро,
+                        астрология, энергетика
+                    </div>
+                    <div class="services__items">
+                        <div class="item-icon">
+                            <i
+                                class="fa fa-graduation-cap"
+                                aria-hidden="true"
+                            ></i>
+                        </div>
+                        <div class="item-title">Обучение</div>
+                        Обучение и Курсы в Онлайн Академии: Таро, Гадание,
+                        Саморазвитие, Энергетика
+                    </div>
+                </div>
+                <div class="services__column column-img">
+                    <img
+                        class="img-left"
+                        src="images/dist/servises-2.png"
+                        alt=""
+                    />
+                </div>
+                <div class="services__column">
+                    <div class="services__items">
+                        <div class="item-icon">
+                            <i class="fa fa-globe"></i>
+                        </div>
+                        <div class="item-title">Мероприятия и Лекции</div>
+                        Мероприятия и Лекции
+                    </div>
 
-	</div>
+                    <div class="services__items">
+                        <div class="item-icon">
+                            <i class="fab fa-youtube"></i>
+                        </div>
+                        <div class="item-title">YouTube канал</div>
+                        YouTube канал
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<!--#include virtual="/parts/footer.html" -->
+        <section class="abaut-me __container section">
+            <div class="abaut-me__row">
+                <div class="abaut-me__bg">
+                    <figure class="abaut-me__icon">
+                        <img src="images/dist/main-icon-1.png" alt="" />
+                    </figure>
+                    <h2 class="abaut-me__title title-h2">Обо мне</h2>
+                    <div class="abaut-me__info">
+                        <p>
+                            Меня зовут Яна и я специалист по западной
+                            астрологии. Проводя консультации и получая тёплые
+                            отклики, я радуюсь всем изменениям, происходящим в
+                            жизнях людей, которые начинают чувствовать свой
+                            внутренний ориентир и жить в соединении с ним.
+                            Бесконечно благодарю каждого за доверие.
+                        </p>
+                        <p>
+                            Приглашаю и вас в это увлекательное путешествие не к
+                            звёздам, но к самим себе , ведь самая удивительная
+                            вселенная находится у нас внутри . Добро пожаловать
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="consultations __container section">
+            <div class="consultations__row">
+                <h2 class="consultations__title title-h2">Консультации</h2>
+                <div class="spollers-block _spollers _one">
+                    <div class="spollers-block__item">
+                        <div class="spollers-block__title _spoller">
+                            Консультация «Путь к себе» состоит из двух частей
+                        </div>
+                        <div class="spollers-block__body">
+                            <div class="spollers-block__body-content">
+                                <p>
+                                    1. Характеристика ядра личности человека(
+                                    Луны -эмоциональной составляющей , того как
+                                    человек видит и чувствует мир. Солнца-
+                                    активной части, самоценности, уникальности)
+                                    . Гармоничные и напряжённые аспекты, если
+                                    они есть . Способы компенсаторики.
+                                </p>
+                                <p>
+                                    2 .Конкретные индивидуальные действия,
+                                    привычки , вводя в свою жизнь которые,
+                                    человек приходит в своё ресурсное состояние
+                                    в достаточно короткие сроки. И начинает жить
+                                    полноценной жизнью, реализуя свой потенциал.
+                                </p>
+                                <p>
+                                    Формат консультации - письменный ( пдф файл)
+                                    с аудио комментариями.
+                                </p>
+                            </div>
+
+                            <div class="spollers-block__bottom">
+                                <div class="spollers-block__bottom-item">
+                                    <span class="spollers-block__bottom-title"
+                                        >Продолжительность:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        2h
+                                        <i class="fas fa-hourglass-start"></i>
+                                    </span>
+                                </div>
+                                <div class="spollers-block__bottom">
+                                    <span class="spollers-block__bottom-title"
+                                        >Стоимость консультации:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        5000
+                                        <i class="fas fa-ruble-sign"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="spollers-block__body-content">
+                                <p>
+                                    1. Полная характеристика женской энергетики,
+                                    сильные, слабые стороны.
+                                </p>
+                                <p>
+                                    2.Образ , с точки зрения внешности и стиля,
+                                    который усилит энергетический посыл и задаст
+                                    ему верный вектор.
+                                </p>
+                                <p>
+                                    3. Персональные рекомендации по раскрытию
+                                    женственности.
+                                </p>
+                                <p>
+                                    4. Характеристика мужской составляющей
+                                    личности. Особенности взаимоотношений с
+                                    мужчинами. Как выстроить гармоничные
+                                    отношения.
+                                </p>
+                                <p>
+                                    5.Подсознательный образ мужа/ возлюбленного.
+                                    Вероятный сценарий знакомства.
+                                </p>
+                                <p>
+                                    6.Возможные причины проблем в личной жизни.
+                                    Рекомендации по их проработке.
+                                </p>
+                                <p>
+                                    Формат консультации - письменный ( пдф файл)
+                                    с аудио комментариями.
+                                </p>
+                            </div>
+
+                            <div class="spollers-block__bottom">
+                                <div class="spollers-block__bottom-item">
+                                    <span class="spollers-block__bottom-title"
+                                        >Продолжительность:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        2h
+                                        <i class="fas fa-hourglass-start"></i>
+                                    </span>
+                                </div>
+                                <div class="spollers-block__bottom">
+                                    <span class="spollers-block__bottom-title"
+                                        >Стоимость консультации:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        5500
+                                        <i class="fas fa-ruble-sign"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="spollers-block__buttons">
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spollers-block__item">
+                        <div class="spollers-block__title _spoller">
+                            Натальная карта
+                        </div>
+                        <div class="spollers-block__body">
+                            <div class="spollers-block__body-content">
+                                <p>
+                                    1. Полный психологический портрет, анализ
+                                    сильных и слабых сторон, рекомендации по их
+                                    проработке.
+                                </p>
+                                <p>
+                                    2. Особенности построения взаимоотношений с
+                                    противоположным полом, рекомендации по
+                                    раскрытию женственности ( для девушек),
+                                    характеристика мужской составляющей ( для
+                                    мужчин).
+                                </p>
+                                <p>
+                                    3. Сильные планеты в карте, рекомендации по
+                                    проработке.
+                                </p>
+                                <p>
+                                    4. Финансы : тратить или копить, бизнес или
+                                    работа по найму. Рекомендуемая сфера
+                                    деятельности.
+                                </p>
+                                <p>
+                                    5. Опыт, наработанный в прошлых жизнях и
+                                    кармические задачи на это воплощение.
+                                </p>
+                                <p>
+                                    6. Список ежедневных ресурсных действий,
+                                    которые позволяют повысить самооценку,
+                                    обрести внутреннюю силу и уверенность в
+                                    себе.
+                                </p>
+                                <p>7. Ответы на частные вопросы.</p>
+                                <p>
+                                    Консультация проводится по вотсап видеосвязи
+                                    или лично, если вы находитесь в Москве.
+                                </p>
+                            </div>
+
+                            <div class="spollers-block__bottom">
+                                <div class="spollers-block__bottom-item">
+                                    <span class="spollers-block__bottom-title"
+                                        >Продолжительность:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        1.5 - 2h
+                                        <i class="fas fa-hourglass-start"></i>
+                                    </span>
+                                </div>
+                                <div class="spollers-block__bottom">
+                                    <span class="spollers-block__bottom-title"
+                                        >Стоимость консультации:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        8000
+                                        <i class="fas fa-ruble-sign"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="spollers-block__buttons">
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spollers-block__item">
+                        <div class="spollers-block__title _spoller">
+                            Детский гороскоп до 14 лет
+                        </div>
+                        <div class="spollers-block__body">
+                            <div class="spollers-block__body-content">
+                                <p>
+                                    1. Опыт, накопленный в прошлых воплощениях,
+                                    задачи для этой жизни.
+                                </p>
+                                <p>
+                                    2. Характеристика эмоций и чувств, то, как
+                                    ребёнок видит мир вокруг , как найти к нему
+                                    подход, . подсознательный образ мамы.
+                                </p>
+                                <p>
+                                    3. Характеристика личности, сильные стороны,
+                                    потенциал, таланты. Подсознательный образ
+                                    папы.
+                                </p>
+                                <p>
+                                    4. Как мотивировать ребёнка. Рекомендации по
+                                    выбору спорта и кружков, для наибольшего
+                                    раскрытия потенциала.
+                                </p>
+                                <p>
+                                    5. Особенности интеллекта. Рекомендации по
+                                    выбору учителя, наставника и наиболее
+                                    эффективный способ обучения в целом.
+                                </p>
+                                <p>
+                                    6. Рекомендации по развитию( список
+                                    ежедневных индивидуальных действий).
+                                </p>
+                                <p>
+                                    Консультация проводится по вотсап видеосвязи
+                                    или лично, если вы находитесь в Москве.
+                                </p>
+                            </div>
+
+                            <div class="spollers-block__bottom">
+                                <div class="spollers-block__bottom-item">
+                                    <span class="spollers-block__bottom-title"
+                                        >Продолжительность:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        1.5 - 2h
+                                        <i class="fas fa-hourglass-start"></i>
+                                    </span>
+                                </div>
+                                <div class="spollers-block__bottom">
+                                    <span class="spollers-block__bottom-title"
+                                        >Стоимость консультации:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        6000
+                                        <i class="fas fa-ruble-sign"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="spollers-block__buttons">
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spollers-block__item">
+                        <div class="spollers-block__title _spoller">
+                            Совместимость
+                        </div>
+                        <div class="spollers-block__body">
+                            <div class="spollers-block__body-content">
+                                <p>
+                                    1. Подсознательные образы потенциальных
+                                    партнеров. Ваши ожидания от отношений.
+                                </p>
+                                <p>
+                                    2. Анализ астрологической совместимости.
+                                    Психологическая, сексуальная.
+                                </p>
+                                <p>
+                                    3. Анализ наличия конфликтных показателей.
+                                    Рекомендации по проработке.
+                                </p>
+                                <p>
+                                    4. Рекомендации по построению гармоничных
+                                    отношений.
+                                </p>
+                                <p>
+                                    Консультация проводится по вотсап видеосвязи
+                                    или лично, если вы находитесь в Москве.
+                                </p>
+                            </div>
+
+                            <div class="spollers-block__bottom">
+                                <div class="spollers-block__bottom-item">
+                                    <span class="spollers-block__bottom-title"
+                                        >Продолжительность:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        1.5 - 2h
+                                        <i class="fas fa-hourglass-start"></i>
+                                    </span>
+                                </div>
+                                <div class="spollers-block__bottom">
+                                    <span class="spollers-block__bottom-title"
+                                        >Стоимость консультации:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        7500
+                                        <i class="fas fa-ruble-sign"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="spollers-block__buttons">
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spollers-block__item">
+                        <div class="spollers-block__title _spoller">
+                            Финансы
+                        </div>
+                        <div class="spollers-block__body">
+                            <div class="spollers-block__body-content">
+                                <p>
+                                    1. Как хочется тратить деньги.Как нужно
+                                    тратить деньги.
+                                </p>
+                                <p>
+                                    2. В каких сферах лучше всего себя
+                                    реализовывать.
+                                </p>
+                                <p>3. Бизнес или работа по найму.</p>
+                                <p>
+                                    4. Индивидуальные рекомендации по увеличению
+                                    финансов.
+                                </p>
+                            </div>
+
+                            <div class="spollers-block__bottom">
+                                <div class="spollers-block__bottom-item">
+                                    <span class="spollers-block__bottom-title"
+                                        >Продолжительность:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        2h
+                                        <i class="fas fa-hourglass-start"></i>
+                                    </span>
+                                </div>
+                                <div class="spollers-block__bottom">
+                                    <span class="spollers-block__bottom-title"
+                                        >Стоимость консультации:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        5000
+                                        <i class="fas fa-ruble-sign"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="spollers-block__buttons">
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spollers-block__item">
+                        <div class="spollers-block__title _spoller">
+                            Консультация «Путь к себе» состоит из двух частей
+                        </div>
+                        <div class="spollers-block__body">
+                            <div class="spollers-block__body-content">
+                                <p>
+                                    1. Характеристика ядра личности человека(
+                                    Луны -эмоциональной составляющей , того как
+                                    человек видит и чувствует мир. Солнца-
+                                    активной части, самоценности, уникальности)
+                                    . Гармоничные и напряжённые аспекты, если
+                                    они есть . Способы компенсаторики.
+                                </p>
+                                <p>
+                                    2 .Конкретные индивидуальные действия,
+                                    привычки , вводя в свою жизнь которые,
+                                    человек приходит в своё ресурсное состояние
+                                    в достаточно короткие сроки. И начинает жить
+                                    полноценной жизнью, реализуя свой потенциал.
+                                </p>
+                                <p>
+                                    Формат консультации - письменный ( пдф файл)
+                                    с аудио комментариями.
+                                </p>
+                            </div>
+
+                            <div class="spollers-block__bottom">
+                                <div class="spollers-block__bottom-item">
+                                    <span class="spollers-block__bottom-title"
+                                        >Продолжительность:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        2h
+                                        <i class="fas fa-hourglass-start"></i>
+                                    </span>
+                                </div>
+                                <div class="spollers-block__bottom">
+                                    <span class="spollers-block__bottom-title"
+                                        >Стоимость консультации:</span
+                                    >
+                                    <span class="spollers-block__bottom-value">
+                                        5000
+                                        <i class="fas fa-ruble-sign"></i>
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="spollers-block__buttons">
+                                <a
+                                    href="#"
+                                    class="btn btn-micromodal-open"
+                                    data-micromodal-open="modal-news"
+                                    >Записаться</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const callBackThanks =
+                    document.querySelector(".callback__thanks")
+                function send(event, php) {
+                    console.log("Отправка запроса")
+                    event.preventDefault
+                        ? event.preventDefault()
+                        : (event.returnValue = false)
+                    var req = new XMLHttpRequest()
+                    req.open("POST", php, true)
+                    req.onload = function () {
+                        if (req.status >= 200 && req.status < 400) {
+                            json = JSON.parse(this.response)
+                            if (json.result == "success") {
+                                callBackThanks.classList.add("show")
+                                event.target.reset()
+                                console.log("Сообщение отправлено")
+                            } else {
+                                // Если произошла ошибка
+                                console.log("Ошибка. Сообщение не отправлено")
+                            }
+                        } else {
+                            console.log("Ошибка сервера. Номер: " + req.status)
+                        }
+                    }
+                    req.onerror = function () {
+                        console.log("Ошибка отправки запроса")
+                    }
+                    req.send(new FormData(event.target))
+                }
+            </script>
+            <!--#include virtual="/parts/micromodal.html" -->
+        </section>
+
+        <section class="feedback __container section">
+            <div class="feedback__row">
+                <h2 class="feedback__title title-h2">Отзывы</h2>
+            </div>
+        </section>
+    </main>
+
+    <!--#include virtual="/parts/footer.html" -->
+</div>
