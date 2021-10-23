@@ -25,12 +25,6 @@
 <div class="wrapper">
     <header class="header" id="stick_menu">
         <div class="header__body __container">
-            <div class="header__burger">
-                <span class="burger-top"></span>
-                <span class="burger-middle">Menu</span>
-                <span class="burger-bottom"></span>
-            </div>
-
             <nav class="header__menu">
                 <ul class="header__list">
                     <li class="header__li">
@@ -607,37 +601,6 @@
                     </div>
                 </div>
             </div>
-            <script>
-                const callBackThanks =
-                    document.querySelector(".callback__thanks")
-                function send(event, php) {
-                    console.log("Отправка запроса")
-                    event.preventDefault
-                        ? event.preventDefault()
-                        : (event.returnValue = false)
-                    var req = new XMLHttpRequest()
-                    req.open("POST", php, true)
-                    req.onload = function () {
-                        if (req.status >= 200 && req.status < 400) {
-                            json = JSON.parse(this.response)
-                            if (json.result == "success") {
-                                callBackThanks.classList.add("show")
-                                event.target.reset()
-                                console.log("Сообщение отправлено")
-                            } else {
-                                // Если произошла ошибка
-                                console.log("Ошибка. Сообщение не отправлено")
-                            }
-                        } else {
-                            console.log("Ошибка сервера. Номер: " + req.status)
-                        }
-                    }
-                    req.onerror = function () {
-                        console.log("Ошибка отправки запроса")
-                    }
-                    req.send(new FormData(event.target))
-                }
-            </script>
             <div class="modal micromodal-slide" id="modal-news" aria-hidden="true">
 	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
 
@@ -655,7 +618,8 @@
 						<div class="callback__item form">
 		
 							<form class="contact" enctype="multipart/form-data" method="post" id="form"
-								onsubmit="send(event, 'sendemail.php')">
+								onsubmit="send(event, 'sendemail.php')"
+								>
 								<div class="form__field field-title">
 									<textarea type="text" name="title" id="title" class="input-title" autocomplete="off"
 										placeholder="" readonly
@@ -670,7 +634,7 @@
 
 								<div class="form__field field-name">
 									<label for="date">Дата рождения</label>
-									<input type="text" name="name" id="date" class="field" autocomplete="off"
+									<input type="date" name="name" id="date" class="field" autocomplete="off"
 										placeholder="xx.xx.xxxx" required>
 								</div>
 
@@ -682,7 +646,7 @@
 
 								<div class="form__field field-name">
 									<label for="time">Время рождения</label>
-									<input type="text" name="name" id="time" class="field" autocomplete="off"
+									<input type="time" name="name" id="time" class="field" autocomplete="off"
 										placeholder="20:30" required>
 								</div>
 
@@ -725,8 +689,129 @@
         </section>
 
         <section class="feedback __container section">
+            <h2 class="feedback__title title-h2">Отзывы</h2>
             <div class="feedback__row">
-                <h2 class="feedback__title title-h2">Отзывы</h2>
+                <div class="swiper feedback-slider">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="feedback-slider__title">
+								<i class="fas fa-comment-dots"></i>
+							</div>
+                            <div class="feedback-slider__text">
+                                <p>
+									<i class="fas fa-quote-right"></i>
+                                    Меня зовут Яна и я специалист по западной
+                                    астрологии. Проводя консультации и получая
+                                    тёплые отклики, я радуюсь всем изменениям,
+                                    происходящим в жизнях людей, которые
+                                    начинают чувствовать свой внутренний
+                                    ориентир и жить в соединении с ним.
+                                    Бесконечно благодарю каждого за доверие.
+									<i class="fas fa-quote-left"></i>
+                                </p>
+                            </div>
+							<div class="feedback-slider__signature">
+								<p>Маша Иванова</p>
+								<p>masha@mail.ru</p>
+							</div>
+                        </div>
+						<div class="swiper-slide">
+                            <div class="feedback-slider__title">
+								<i class="fas fa-comment-dots"></i>
+							</div>
+                            <div class="feedback-slider__text">
+                                <p>
+									<i class="fas fa-quote-right"></i>
+                                    Меня зовут Яна и я специалист по западной
+                                    астрологии. Проводя консультации и получая
+                                    тёплые отклики, я радуюсь всем изменениям,
+                                    происходящим в жизнях людей, которые
+                                    начинают чувствовать свой внутренний
+                                    ориентир и жить в соединении с ним.
+                                    Бесконечно благодарю каждого за доверие.
+									<i class="fas fa-quote-left"></i>
+                                </p>
+                            </div>
+							<div class="feedback-slider__signature">
+								<p>Маша Иванова</p>
+								<p>masha@mail.ru</p>
+							</div>
+                        </div>
+						<div class="swiper-slide">
+                            <div class="feedback-slider__title">
+								<i class="fas fa-comment-dots"></i>
+							</div>
+                            <div class="feedback-slider__text">
+                                <p>
+									<i class="fas fa-quote-right"></i>
+                                    Меня зовут Яна и я специалист по западной
+                                    астрологии. Проводя консультации и получая
+                                    тёплые отклики, я радуюсь всем изменениям,
+                                    происходящим в жизнях людей, которые
+                                    начинают чувствовать свой внутренний
+                                    ориентир и жить в соединении с ним.
+                                    Бесконечно благодарю каждого за доверие.
+									<i class="fas fa-quote-left"></i>
+                                </p>
+                            </div>
+							<div class="feedback-slider__signature">
+								<p>Маша Иванова</p>
+								<p>masha@mail.ru</p>
+							</div>
+                        </div>
+						<div class="swiper-slide">
+                            <div class="feedback-slider__title">
+								<i class="fas fa-comment-dots"></i>
+							</div>
+                            <div class="feedback-slider__text">
+                                <p>
+									<i class="fas fa-quote-right"></i>
+                                    Меня зовут Яна и я специалист по западной
+                                    астрологии. Проводя консультации и получая
+                                    тёплые отклики, я радуюсь всем изменениям,
+                                    происходящим в жизнях людей, которые
+                                    начинают чувствовать свой внутренний
+                                    ориентир и жить в соединении с ним.
+                                    Бесконечно благодарю каждого за доверие.
+									<i class="fas fa-quote-left"></i>
+                                </p>
+                            </div>
+							<div class="feedback-slider__signature">
+								<p>Маша Иванова</p>
+								<p>masha@mail.ru</p>
+							</div>
+                        </div>
+						<div class="swiper-slide">
+                            <div class="feedback-slider__title">
+								<i class="fas fa-comment-dots"></i>
+							</div>
+                            <div class="feedback-slider__text">
+                                <p>
+									<i class="fas fa-quote-right"></i>
+                                    Меня зовут Яна и я специалист по западной
+                                    астрологии. Проводя консультации и получая
+                                    тёплые отклики, я радуюсь всем изменениям,
+                                    происходящим в жизнях людей, которые
+                                    начинают чувствовать свой внутренний
+                                    ориентир и жить в соединении с ним.
+                                    Бесконечно благодарю каждого за доверие.
+									<i class="fas fa-quote-left"></i>
+                                </p>
+                            </div>
+							<div class="feedback-slider__signature">
+								<p>Маша Иванова</p>
+								<p>masha@mail.ru</p>
+							</div>
+                        </div>
+
+                    </div>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </section>
     </main>
