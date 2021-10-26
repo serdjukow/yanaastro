@@ -6,8 +6,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Lobster&family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bad+Script&family=Lobster&family=Marck+Script&family=Pacifico&display=swap");
 
-
-
 .heading {
     font-weight: 700;
     margin: math.div($gutter, 2) 0 math.div($gutter, 1.5);
@@ -55,7 +53,7 @@ body {
 }
 .header {
     position: relative;
-	z-index: 10;
+    z-index: 10;
     user-select: none;
     z-index: 3;
     transition: 0.3s;
@@ -100,8 +98,8 @@ body {
     overflow: hidden;
     max-width: 100px;
     z-index: 4;
-	text-decoration: none;
-	color: #ffffff;
+    text-decoration: none;
+    color: #ffffff;
     &:hover {
         color: #ffffff;
     }
@@ -225,27 +223,26 @@ body {
     }
 }
 
-
 .title-h2 {
-	position: relative;
+    position: relative;
     font-family: "Marck Script", cursive;
     font-size: 60px;
-	color: #fff;
-	text-align: center;
-	padding-bottom: 10px;
-	margin-bottom: 30px;
-	user-select: none;
-	&::before {
-		content: "";		
-		position: absolute;
-		bottom: 0;
-		left: 50%;
-		transform: translateX(-50%);
-		display: block;
-		width: 150px;
-		height: 3px;
-		background-color: $accent;
-	}
+    color: #fff;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    user-select: none;
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        width: 150px;
+        height: 3px;
+        background-color: $accent;
+    }
 }
 
 .services {
@@ -331,7 +328,7 @@ body {
 }
 
 .abaut-me {
-	margin-bottom: 50px;
+    margin-bottom: 50px;
     // .services__icon
 
     &__icon {
@@ -344,7 +341,6 @@ body {
     }
 
     &__title {
-        
     }
 
     // .abaut-me__row
@@ -387,25 +383,23 @@ body {
 }
 
 .consultations {
-	margin-bottom: 50px;
+    margin-bottom: 50px;
 
-	// .consultations__row
+    // .consultations__row
 
-	&__row {
-	}
+    &__row {
+    }
 
-	// .consultations__title
+    // .consultations__title
 
-	&__title {
-		
-	}
+    &__title {
+    }
 }
-
 
 /*----------------------Footer--------------------------------*/
 footer {
     position: relative;
-	z-index: 10;
+    z-index: 10;
     padding-bottom: 20px;
 }
 .footer__top {
@@ -548,31 +542,30 @@ footer {
         textarea:focus:-ms-input-placeholder {
             color: transparent;
         } /* Internet Explorer 10+ */
- 
     }
 }
 
 .btn {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 auto;
-	min-width: 151px;
-	padding: 10px 30px;
-	background-color: $accent;
-	border: 1px solid $accent;
-	border-radius: 30px;
-	color: #ffffff;
-	font-weight: 700;
-	cursor: pointer;
-	transition: 0.2s;
-	text-decoration: none;
-	user-select: none;
-	&:hover {
-		background-color: transparent;
-		color: $accent;
-		transition: 0.2s;
-	}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    min-width: 151px;
+    padding: 10px 30px;
+    background-color: $accent;
+    border: 1px solid $accent;
+    border-radius: 30px;
+    color: #ffffff;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+    user-select: none;
+    &:hover {
+        background-color: transparent;
+        color: $accent;
+        transition: 0.2s;
+    }
 }
 
 .footer__bottom {
@@ -648,5 +641,5 @@ footer {
 /*----------------------Footer--------------------------------*/
 
 .section {
-	min-height:  500px;
+    min-height: 500px;
 }

@@ -26,6 +26,9 @@
     background-color: $bg-blue;
     overflow: hidden;
 	padding: 20px;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
 }
 
 .swiper-slide img {
@@ -77,6 +80,7 @@
 	// .feedback-slider__text
 
 	&__text {
+		flex: 1 1 100%;
 		margin-bottom: 15px;
 		font-style: italic;
 		i {
