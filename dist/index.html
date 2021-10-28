@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<!-- <base href="/"> -->
+
+	<title>OptimizedHTML 5</title>
+	<meta name="description" content="Startup HTML template OptimizedHTML 5">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="icon" href="images/favicon.png">
+	<meta property="og:image" content="images/dist/preview.jpg">
+	
+	<link rel="stylesheet" href="css/app.min.css">
+	<meta name="yandex-verification" content="6e105ee4eb1a29e5" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+
+<body>
+<canvas id="nokey" width="800" height="800"></canvas>
+<div class="wrapper">
+	<header class="header" id="stick_menu">
+		<div class="header__body __container">
+			<nav class="header__menu">
+				<ul class="header__list">
+					<li class="header__li">
+						<a class="header__link active button-go-to" href="#" data-goto="body">Главная</a>
+					</li>
+					<li class="header__li">
+						<a href="#" class="header__link button-go-to" data-goto=".abaut-me">Обо мне</a>
+					</li>
+					<li class="header__li">
+						<a href="#" class="header__link button-go-to" data-goto=".consultations">Консультации</a>
+					</li>
+					<li class="li_logo">
+						<a href="#" class="header__logo">
+							<i class="fas fa-yin-yang"></i>
+							<span>Yana Astro</span>
+						</a>
+					</li>
+					<li class="header__li">
+						<a href="#" class="header__link button-go-to" data-goto=".feedback">Отзывы</a>
+					</li>
+
+					<li class="header__li">
+						<a href="#" class="header__link button-go-to" data-goto=".horoscope">Гороскоп</a>
+					</li>
+					<li class="header__li">
+						<a href="#" class="header__link button-go-to" data-goto="footer">Контакты</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<main class="page">
+
+
+		<section class="services __container section" data-active=".services">
+			<div class="services__title">
+				<h1>Yana Astro</h1>
+				<p>Астролог Яна Городилкина | Москва</p>
+			</div>
+			<div class="services__row">
+				<div class="services__column">
+					<div class="services__items">
+						<div class="item-icon">
+							<i class="fas fa-pencil-alt"></i>
+						</div>
+						<div class="item-title">Консультации</div>
+						Персональные Консультации, офлайн и онлайн: таро, астрология, энергетика
+					</div>
+					<div class="services__items">
+						<div class="item-icon">
+							<i class="fa fa-graduation-cap" aria-hidden="true"></i>
+						</div>
+						<div class="item-title">Обучение</div>
+						Обучение и Курсы в Онлайн Академии: Таро, Гадание, Саморазвитие, Энергетика
+					</div>
+				</div>
+				<div class="services__column column-img">
+					<img class="img-left" src="images/dist/servises-2.png" alt="" />
+				</div>
+				<div class="services__column">
+					<div class="services__items">
+						<div class="item-icon">
+							<i class="fa fa-globe"></i>
+						</div>
+						<div class="item-title">Мероприятия и Лекции</div>
+						Мероприятия и Лекции
+					</div>
+
+					<div class="services__items">
+						<div class="item-icon">
+							<i class="fab fa-youtube"></i>
+						</div>
+						<div class="item-title">YouTube канал</div>
+						YouTube канал
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="abaut-me __container section">
+			<div class="abaut-me__row">
+				<div class="abaut-me__bg">
+					<figure class="abaut-me__icon">
+						<img src="images/dist/main-icon-1.png" alt="" />
+					</figure>
+					<h2 class="abaut-me__title title-h2">Обо мне</h2>
+					<div class="abaut-me__info">
+						<p>
+							Меня зовут Яна и я специалист по западной астрологии. Проводя консультации и получая тёплые отклики, я радуюсь всем изменениям, происходящим в жизнях
+							людей, которые начинают чувствовать свой внутренний ориентир и жить в соединении с ним. Бесконечно благодарю каждого за доверие.
+						</p>
+						<p>
+							Приглашаю и вас в это увлекательное путешествие не к звёздам, но к самим себе , ведь самая удивительная вселенная находится у нас внутри . Добро
+							пожаловать
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="consultations __container section">
+			<div class="consultations__row">
+				<h2 class="consultations__title title-h2">Консультации</h2>
+				<div id="consultations-block" class="spollers-block _spollers _one"></div>
+			</div>
+		</section>
+
+
+
+		<section class="feedback __container section">
+			<h2 class="feedback__title title-h2">Отзывы</h2>
+			<div class="feedback__row">
+				<div class="swiper feedback-slider">
+					<div id="feedbacks-block" class="swiper-wrapper"></div>
+					<div class="swiper-pagination"></div>
+				</div>
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</section>
+
+		<section id="horoscope" class="horoscope">
+			<div class="horoscope__row __container">
+				<h2 class="horoscope__title title-h2">Гороскоп</h2>
+				<div id="horo-content" class="horoscope__items "></div>
+			</div>
+		</section>
+	</main>
+	<div class="modal micromodal-slide" id="modal-news" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container modal-news _container" role="dialog" aria-modal="true">
+			<div class="modal__close" aria-label="Close modal" data-micromodal-close="true">&#9932;</div>
+			<div class="callback modal-news__body">
+				<div class="callback__row __container">
+
+
+
+							
+							
+							
+							
+							
+
+
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+	<footer class="footer section">
+	<div class="foorer__row __container">
+		<h2 class="feedback__title title-h2">Контакты</h2>
+		<div class="footer__top">	
+			<!--menu-->
+			<nav></nav>		
+			<!--/menu-->
+				
+			<!--social-->
+			<div class="footer__top_sotial-cotnainer">
+				<div class="footer__logo">
+					<div class="logo">
+						<a href="#">
+							<i class="fas fa-yin-yang"></i>
+							<span>Yana Astro</span>
+						</a>
+					</div>
+				</div>
+				<div class="footer__info">Яна Городилкина I  Москва, Россия</div>
+				<div class="social">
+					<div class="social-element">
+						<a  href="" target="_blank"><i class="fab fa-instagram"></i></a>
+						</div>
+					<div class="social-element">
+						<a  href="" target="_blank"><i class="fab fa-youtube"></i></a>
+						</div>
+					</div>
+			</div>
+				<!--/social-->
+			<div class="footerRight">
+				<form action="">
+					<input type="text" class="youre-name" placeholder="Имя">
+					<input type="text" class="youre-mail" placeholder="Эл. почта">
+					<textarea type="text" class="youre-message" placeholder="Ваше сообщение" name="message"></textarea>
+					<button class="btn" type="submit">Отправить</button>
+				</form>
+			</div>
+		</div>
+			<!--copy-->
+		<div class="footer__bottom">
+					<!--copy-->
+			<div class="copy">
+				<span class="footer__bottom-copyright"><span class="current-date"></span> Яна Городилкина / Yana Astro - Астролог Москва, Россия</span>	
+			</div>
+					<!--/copy-->	
+		</div>		
+	</div>
+</footer>
+</div>
+<script type="text/javascript">
+	if (window.history.replaceState) {
+		window.history.replaceState(null, null, window.location.href)
+	}
+</script>
+	<script src="js/app.min.js"></script>
+
+</body>
+</html>
+</div>
