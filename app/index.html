@@ -26,7 +26,7 @@
 					</li>
 
 					<li class="header__li">
-						<a href="#" class="header__link">Бла бла</a>
+						<a href="#" class="header__link button-go-to" data-goto=".horoscope">Гороскоп</a>
 					</li>
 					<li class="header__li">
 						<a href="#" class="header__link button-go-to" data-goto="footer">Контакты</a>
@@ -36,6 +36,8 @@
 		</div>
 	</header>
 	<main class="page">
+
+
 		<section class="services __container section" data-active=".services">
 			<div class="services__title">
 				<h1>Yana Astro</h1>
@@ -109,6 +111,8 @@
 			</div>
 		</section>
 
+
+
 		<section class="feedback __container section">
 			<h2 class="feedback__title title-h2">Отзывы</h2>
 			<div class="feedback__row">
@@ -118,6 +122,13 @@
 				</div>
 				<div class="swiper-button-prev"></div>
 				<div class="swiper-button-next"></div>
+			</div>
+		</section>
+
+		<section id="horoscope" class="horoscope">
+			<div class="horoscope__row __container">
+				<h2 class="horoscope__title title-h2">Гороскоп</h2>
+				<div id="horo-content" class="horoscope__items "></div>
 			</div>
 		</section>
 	</main>

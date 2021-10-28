@@ -1,0 +1,86 @@
+[
+	{
+		"id": 1,
+		"name": "aries",
+		"img": "images/dist/zodiac/aries.png",
+		"title": "Овен",
+		"date": "Mar 21 - Apr 19"
+	},
+	{
+		"id": 2,
+		"name": "taurus",
+		"img": "images/dist/zodiac/taurus.png",
+		"title": "Телец",
+		"date": "Apr 20 - May 20"
+	},
+	{
+		"id": 3,
+		"name": "gemini",
+		"img": "images/dist/zodiac/gemini.png",
+		"title": "Близнецы",
+		"date": "May 21 - Jun 20"
+	},
+	{
+		"id": 4,
+		"name": "cance",
+		"img": "images/dist/zodiac/cancer.png",
+		"title": "Рак",
+		"date": "Jan 21 - Jul 22"
+	},
+	{
+		"id": 5,
+		"name": "leo",
+		"img": "images/dist/zodiac/leo.png",
+		"title": "Лев",
+		"date": "Jul 23 - Aug 22"
+	},
+	{
+		"id": 6,
+		"name": "virgo",
+		"img": "images/dist/zodiac/virgo.png",
+		"title": "Дева",
+		"date": "Aug 23 – Sep 22"
+	},
+	{
+		"id": 7,
+		"name": "libra",
+		"img": "images/dist/zodiac/libra.png",
+		"title": "Весы",
+		"date": "Sep 23 - Oct 22"
+	},
+	{
+		"id": 8,
+		"name": "scorpio",
+		"img": "images/dist/zodiac/scorpio.png",
+		"title": "Скорпион",
+		"date": "Oct 23 - Nov 21"
+	},
+	{
+		"id": 9,
+		"name": "sagittarius",
+		"img": "images/dist/zodiac/sagittarius.png",
+		"title": "Стрелец",
+		"date": "Nov 22 - Dec 21"
+	},
+	{
+		"id": 10,
+		"name": "capricorn",
+		"img": "images/dist/zodiac/capricorn.png",
+		"title": "Козерог",
+		"date": "Dec 22 - Jan 19"
+	},
+	{
+		"id": 11,
+		"name": "aquarius",
+		"img": "images/dist/zodiac/aquarius.png",
+		"title": "Водолей",
+		"date": "Jan 20 - Feb 18"
+	},
+	{
+		"id": 12,
+		"name": "pisces",
+		"img": "images/dist/zodiac/pisces.png",
+		"title": "Рыбы",
+		"date": "Feb 19 - Mar 20"
+	}
+]

@@ -133,49 +133,46 @@ const toHTML_CS = (consultation, contentValue) => `
 `
 
 const toHTML_FORM = consultation => `
-<form class="contact" enctype="multipart/form-data" method="post" id="form"
-onsubmit="send(event, 'sendemail.php')">
+<div class="callback__title title">
+<h3 class="modal-news__title">Оформление заявки</h3>
+</div>
+<div class="callback__items">
+<div class="callback__item form">
+	<form class="contact" enctype="multipart/form-data" method="post" id="form" onsubmit="send(event, 'sendemail.php')">
 	<div class="form__field field-title">
 		<textarea type="text" name="title" id="title" class="input-title" autocomplete="off"
 			placeholder=""  readonly>${consultation.title}</textarea>			
 	</div>
-
 	<div class="form__field field-name">
 		<label for="name">Ваше имя и фамилия</label>
 		<input type="text" name="name" id="name" class="field" autocomplete="off"
 			placeholder="Иван Иванов" required>
 	</div>
-
 	<div class="form__field field-name">
 		<label for="date">Дата рождения</label>
 		<input type="date" name="name" id="date" class="field" autocomplete="off"
 			placeholder="xx.xx.xxxx" required>
 	</div>
-
 	<div class="form__field field-name">
 		<label for="place">Место рождения</label>
 		<input type="text" name="name" id="place" class="field" autocomplete="off"
 			placeholder="Москва, Россия" required>
 	</div>
-
 	<div class="form__field field-name">
 		<label for="time">Время рождения</label>
 		<input type="time" name="name" id="time" class="field" autocomplete="off"
 			placeholder="20:30" required>
 	</div>
-
 	<div class="form__field field-phone">
 		<label for="phone">Ваш телефон</label>
 		<input id="phone" class="field input _req phone" autocomplete="off" type="tel" name="phone"
 			placeholder="+7 (___) ___-__-__ " required>
 	</div>
-
 	<div class="form__field field-mail">
 		<label for="email">Ваш e-mail</label>
 		<input type="email" name="email" id="email" class="field" autocomplete="off"
 			placeholder="example@gmail.com" required>
 	</div>
-
 	<div class="form__field field-message">
 		<label for="message">Сообщение</label>
 		<textarea name="message" id="message" class="field" placeholder="Начните писать..."></textarea>
@@ -183,6 +180,12 @@ onsubmit="send(event, 'sendemail.php')">
 	<button id="callback" type="submit" name="submit" class="send-btn form__button btn">
 	Оставить заявку</button>
 </form>	
+<div class="callback__thanks">
+	<p>Спасибо за заявку!</p>
+	<p>Подтверждение будет отправленно после обработки.</p>
+</div>
+</div>
+</div>
 `
 
 function renderConsultations() {
@@ -197,15 +200,15 @@ function renderConsultations() {
 }
 renderConsultations()
 
-function renderFORM() {
-	document.addEventListener('click', event => {
-		event.preventDefault()
-		const btnType = event.target.dataset.btn
-		const id = +event.target.dataset.id
-		if (btnType == 'consult') {
-			const consultation = consultations.find(f => f.id === id)
-			document.querySelector('#form').innerHTML = toHTML_FORM(consultation)
-		}
-	})
-}
-renderFORM()
+//console.log(typeof consultations, consultations);
+
+document.addEventListener('click', event => {
+	event.preventDefault()
+	const btnType = event.target.dataset.btn
+	const id = +event.target.dataset.id
+	if (btnType == 'consult') {
+		const consultation = consultations.find(f => f.id === id)
+		document.querySelector('.callback__row').innerHTML = ''
+		document.querySelector('.callback__row').innerHTML = toHTML_FORM(consultation)
+	}
+})

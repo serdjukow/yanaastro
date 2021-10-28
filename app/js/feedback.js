@@ -1,50 +1,44 @@
 const feedbacks = [
-    {
-        id: 1,
-        content:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?",
-        name: "Masha Ivanova",
-        mail: "masha@mail.ru",
-    },
-    {
-        id: 2,
-        content:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?",
-        name: "Masha Ivanova",
-        mail: "masha@mail.ru",
-    },
-    {
-        id: 3,
-        content:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?",
-        name: "Masha Ivanova",
-        mail: "masha@mail.ru",
-    },
-    {
-        id: 4,
-        content:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?",
-        name: "Masha Ivanova",
-        mail: "masha@mail.ru",
-    },
-    {
-        id: 5,
+	{
+		id: 1,
+		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?',
+		name: 'Masha Ivanova',
+		mail: 'masha@mail.ru',
+	},
+	{
+		id: 2,
+		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?',
+		name: 'Masha Ivanova',
+		mail: 'masha@mail.ru',
+	},
+	{
+		id: 3,
+		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?',
+		name: 'Masha Ivanova',
+		mail: 'masha@mail.ru',
+	},
+	{
+		id: 4,
+		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?',
+		name: 'Masha Ivanova',
+		mail: 'masha@mail.ru',
+	},
+	{
+		id: 5,
 
-        content:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?",
-        name: "Masha Ivanova",
-        mail: "masha@mail.ru",
-    },
-    {
-        id: 6,
-        content:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?",
-        name: "Masha Ivanova",
-        mail: "masha@mail.ru",
-    },
+		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?',
+		name: 'Masha Ivanova',
+		mail: 'masha@mail.ru',
+	},
+	{
+		id: 6,
+		content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae voluptas labore eveniet iusto nam, laboriosam culpa quos pariatur et reprehenderit?',
+		name: 'Masha Ivanova',
+		mail: 'masha@mail.ru',
+	},
 ]
 
-const toHTML_FB = (feedback) => `
+const toHTML_FB = feedback => `
 		<div class="swiper-slide">
 			<div class="feedback-slider__title">
 				<i class="fas fa-comment-dots"></i>
@@ -64,7 +58,7 @@ const toHTML_FB = (feedback) => `
 	`
 
 function renderFeebacks() {
-    const html_fb = feedbacks.map(toHTML_FB).join("")
-    document.querySelector("#feedbacks-block").innerHTML = html_fb
+	const html_fb = feedbacks.map(toHTML_FB).join('')
+	document.querySelector('#feedbacks-block').innerHTML = html_fb
 }
 renderFeebacks()

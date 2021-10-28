@@ -1,13 +1,10 @@
-// Import vendor jQuery plugin example
-// import '~/app/libs/mmenu/dist/mmenu.js'
+import '@babel/polyfill'
+
+
 import MicroModal from 'micromodal' // es6 module
-import Swiper, {
-	Navigation,
-	Pagination,
-	EffectCoverflow,
-	Autoplay,
-} from 'swiper'
+import Swiper, { Navigation, Pagination, EffectCoverflow, Autoplay } from 'swiper'
 Swiper.use([Navigation, Pagination, EffectCoverflow, Autoplay])
+
 
 document.addEventListener('DOMContentLoaded', () => {
 	const swiper = new Swiper('.swiper', {
@@ -58,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		},
 	})
 
-	const initModal = () => {
+	const initModal = function() {
 		MicroModal.init({
 			openTrigger: 'data-micromodal-open',
 			disableScroll: true,
@@ -79,15 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		function onButtonClick(e) {
 			e.preventDefault()
 			const buttonLink = e.target
-			if (
-				buttonLink.dataset.goto &&
-				document.querySelector(buttonLink.dataset.goto)
-			) {
-				const gotoBlock = document.querySelector(
-					buttonLink.dataset.goto
-				)
-				const gotoBlockValue =
-					gotoBlock.getBoundingClientRect().top + pageYOffset
+			if (buttonLink.dataset.goto && document.querySelector(buttonLink.dataset.goto)) {
+				const gotoBlock = document.querySelector(buttonLink.dataset.goto)
+				const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset
 				if (header.classList.contains('change')) {
 					window.scrollTo({
 						top: gotoBlockValue - 80,
@@ -126,22 +117,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		if (window.innerWidth > 768) {
 			document.querySelectorAll('.section').forEach((el, i) => {
-				if (
-					el.offsetTop -
-						document.querySelector('.header__list').clientHeight <=
-					scrollDistance
-				) {
-					document
-						.querySelectorAll('.header__list .header__link')
-						.forEach(el => {
-							if (el.classList.contains('active')) {
-								el.classList.remove('active')
-							}
-						})
-					document
-						.querySelectorAll('.header__list .header__li')
-						[i].querySelector('.header__link')
-						.classList.add('active')
+				if (el.offsetTop - document.querySelector('.header__list').clientHeight <= scrollDistance) {
+					document.querySelectorAll('.header__list .header__link').forEach(el => {
+						if (el.classList.contains('active')) {
+							el.classList.remove('active')
+						}
+					})
+					document.querySelectorAll('.header__list .header__li')[i].querySelector('.header__link').classList.add('active')
 				}
 			})
 		}
@@ -156,24 +138,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			spoller.addEventListener('click', function (e) {
 				if (spollersGo) {
 					spollersGo = false
-					if (
-						spoller.classList.contains('_spoller-992') &&
-						window.innerWidth > 992
-					) {
+					if (spoller.classList.contains('_spoller-992') && window.innerWidth > 992) {
 						return false
 					}
-					if (
-						spoller.classList.contains('_spoller-768') &&
-						window.innerWidth > 768
-					) {
+					if (spoller.classList.contains('_spoller-768') && window.innerWidth > 768) {
 						return false
 					}
-					if (
-						spoller.closest('._spollers').classList.contains('_one')
-					) {
-						let curent_spollers = spoller
-							.closest('._spollers')
-							.querySelectorAll('._spoller')
+					if (spoller.closest('._spollers').classList.contains('_one')) {
+						let curent_spollers = spoller.closest('._spollers').querySelectorAll('._spoller')
 						for (let i = 0; i < curent_spollers.length; i++) {
 							let el = curent_spollers[i]
 							if (el != spoller) {
@@ -279,11 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
 				})
 				.replace(/[+()]/g, '\\$&')
 			reg = new RegExp('^' + reg + '$')
-			if (
-				!reg.test(this.value) ||
-				this.value.length < 5 ||
-				(keyCode > 47 && keyCode < 58)
-			) {
+			if (!reg.test(this.value) || this.value.length < 5 || (keyCode > 47 && keyCode < 58)) {
 				this.value = newValue
 			}
 			if (event.type === 'blur' && this.value.length < 5) {
@@ -312,22 +280,4 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		})
 	})
-
-	/*
-    spollersBlockItem.forEach((item) => {
-        item.addEventListener("click", (event) => {
-            event.preventDefault()
-            let el = event.currentTarget
-            let el2 = event.target
-            if (el2.classList.contains("btn-micromodal-open")) {
-                for (let field of formField) {
-                    if (field.classList.contains("field-title")) {
-                        field.childNodes[1].value = ""
-                        field.childNodes[1].value = el.childNodes[1].innerText
-                    }
-                }
-            }
-        })
-    })
-	*/
 })
