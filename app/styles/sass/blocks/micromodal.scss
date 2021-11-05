@@ -180,3 +180,9 @@
 .micromodal-slide .modal__overlay {
     will-change: transform;
 }
+
+body .micromodal-slide[aria-hidden="false"] {
+	.micromodal-slide body {
+		margin-right: 30px;
+	}
+}

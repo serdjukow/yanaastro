@@ -200,13 +200,11 @@ function renderConsultations() {
 }
 renderConsultations()
 
-//console.log(typeof consultations, consultations);
-
 document.addEventListener('click', event => {
 	event.preventDefault()
 	const btnType = event.target.dataset.btn
-	const id = +event.target.dataset.id
 	if (btnType == 'consult') {
+		const id = +event.target.dataset.id
 		const consultation = consultations.find(f => f.id === id)
 		document.querySelector('.callback__row').innerHTML = ''
 		document.querySelector('.callback__row').innerHTML = toHTML_FORM(consultation)

@@ -1,12 +1,13 @@
 import '@babel/polyfill'
-
+import Scrollbar from 'smooth-scrollbar'
 
 import MicroModal from 'micromodal' // es6 module
 import Swiper, { Navigation, Pagination, EffectCoverflow, Autoplay } from 'swiper'
 Swiper.use([Navigation, Pagination, EffectCoverflow, Autoplay])
 
-
 document.addEventListener('DOMContentLoaded', () => {
+	Scrollbar.init(document.querySelector('.modal-news__body'))
+
 	const swiper = new Swiper('.swiper', {
 		loop: true,
 		effect: 'coverflow',
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		},
 	})
 
-	const initModal = function() {
+	const initModal = function () {
 		MicroModal.init({
 			openTrigger: 'data-micromodal-open',
 			disableScroll: true,
@@ -96,17 +97,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const header = document.querySelector('.header')
 	const headerLogo = document.querySelector('.li_logo')
-	const wrapper = document.querySelector('.wrapper')
 
 	document.addEventListener('scroll', function () {
-		if (window.pageYOffset >= 180) {
+		if (window.pageYOffset >= 20) {
 			header.classList.add('change')
-			headerLogo.style.display = 'none'
-			wrapper.style.paddingTop = 70 + 'px'
+			if (window.innerWidth > 767.98) {
+				headerLogo.style.display = 'none'
+			}
 		} else {
 			header.classList.remove('change')
-			headerLogo.style.display = 'block'
-			wrapper.style.paddingTop = 0 + 'px'
+			if (window.innerWidth > 767.98) {
+				headerLogo.style.display = 'block'
+			}
 		}
 	})
 
@@ -115,18 +117,16 @@ document.addEventListener('DOMContentLoaded', () => {
 	window.addEventListener('scroll', () => {
 		let scrollDistance = window.scrollY
 
-		if (window.innerWidth > 768) {
-			document.querySelectorAll('.section').forEach((el, i) => {
-				if (el.offsetTop - document.querySelector('.header__list').clientHeight <= scrollDistance) {
-					document.querySelectorAll('.header__list .header__link').forEach(el => {
-						if (el.classList.contains('active')) {
-							el.classList.remove('active')
-						}
-					})
-					document.querySelectorAll('.header__list .header__li')[i].querySelector('.header__link').classList.add('active')
-				}
-			})
-		}
+		document.querySelectorAll('.section').forEach((el, i) => {
+			if ((el.offsetTop - document.querySelector('.header__body').clientHeight - 100) <= scrollDistance) {
+				document.querySelectorAll('.header__list .header__link').forEach(el => {
+					if (el.classList.contains('active')) {
+						el.classList.remove('active')
+					}
+				})
+				document.querySelectorAll('.header__list .header__li')[i].querySelector('.header__link').classList.add('active')
+			}
+		})
 	})
 
 	//Spollers
@@ -280,4 +280,249 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		})
 	})
+
+	// Select
+	let selects = document.getElementsByTagName('select')
+	if (selects.length > 0) {
+		selects_init()
+	}
+	function selects_init() {
+		for (let index = 0; index < selects.length; index++) {
+			const select = selects[index]
+			select_init(select)
+		}
+		//select_callback();
+		document.addEventListener('click', function (e) {
+			//selects_close(e);
+		})
+		document.addEventListener('keydown', function (e) {
+			if (e.which == 27) {
+				selects_close(e)
+			}
+		})
+	}
+	function selects_close(e) {
+		const selects = document.querySelectorAll('.select')
+		if (!e.target.closest('.select')) {
+			for (let index = 0; index < selects.length; index++) {
+				const select = selects[index]
+				const select_body_options = select.querySelector('.select__options')
+				select.classList.remove('_active')
+				_slideUp(select_body_options, 100)
+			}
+		}
+	}
+	function select_init(select) {
+		const select_parent = select.parentElement
+		const select_modifikator = select.getAttribute('class')
+		const select_selected_option = select.querySelector('option:checked')
+		select.setAttribute('data-default', select_selected_option.value)
+		select.style.display = 'none'
+
+		select_parent.insertAdjacentHTML('beforeend', '<div class="select select_' + select_modifikator + '"></div>')
+
+		let new_select = select.parentElement.querySelector('.select')
+		new_select.appendChild(select)
+		select_item(select)
+	}
+	function select_item(select) {
+		const select_parent = select.parentElement
+		const select_items = select_parent.querySelector('.select__item')
+		const select_options = select.querySelectorAll('option')
+		const select_selected_option = select.querySelector('option:checked')
+		const select_selected_text = select_selected_option.text
+		const select_type = select.getAttribute('data-type')
+		if (select_items) {
+			select_items.remove()
+		}
+
+		let select_type_content = ''
+		if (select_type == 'input') {
+			select_type_content =
+				'<div class="select__value"><input autocomplete="off" type="text" name="form[]" value="' +
+				select_selected_text +
+				'" data-error="Ошибка" data-value="' +
+				select_selected_text +
+				'" class="select__input"></div>'
+		} else {
+			select_type_content = '<div class="select__value"><span>' + select_selected_text + '</span></div>'
+		}
+
+		select_parent.insertAdjacentHTML(
+			'beforeend',
+			'<div class="select__item">' +
+				'<div class="select__title">' +
+				select_type_content +
+				'</div>' +
+				'<div class="select__options">' +
+				select_get_options(select_options) +
+				'</div>' +
+				'</div></div>'
+		)
+
+		select_actions(select, select_parent)
+	}
+
+	function select_actions(original, select) {
+		const select_item = select.querySelector('.select__item')
+		const select_body_options = select.querySelector('.select__options')
+		const select_options = select.querySelectorAll('.select__option-in')
+		const select_type = original.getAttribute('data-type')
+		const select_input = select.querySelector('.select__input')
+		select_item.addEventListener('click', function () {
+			let selects = document.querySelectorAll('.select')
+			for (let index = 0; index < selects.length; index++) {
+				const select = selects[index]
+				const select_body_options = select.querySelector('.select__options')
+				if (select != select_item.closest('.select')) {
+					select.classList.remove('_active')
+					_slideUp(select_body_options, 100)
+				}
+			}
+			if (window.innerWidth <= 1200) {
+				_slideToggle(select_body_options, 100)
+				select.classList.toggle('_active')
+			}
+		})
+
+		for (let index = 0; index < select_options.length; index++) {
+			const select_option = select_options[index]
+			const select_option_value = select_option.getAttribute('data-value')
+			const select_option_text = select_option.innerHTML
+
+			if (select_type == 'input') {
+				select_input.addEventListener('keyup', select_search)
+			} else {
+				if (select_option.getAttribute('data-value') == original.value) {
+					select_option.style.display = 'none'
+				}
+			}
+			select_option.addEventListener('click', function () {
+				for (let index = 0; index < select_options.length; index++) {
+					const el = select_options[index]
+					el.style.display = 'flex'
+				}
+				if (select_type == 'input') {
+					select_input.value = select_option_text
+					original.value = select_option_value
+				} else {
+					select.querySelector('.select__value').innerHTML = '<span>' + select_option_text + '</span>'
+					original.value = select_option_value
+					select_option.style.display = 'none'
+				}
+			})
+		}
+	}
+	function select_get_options(select_options) {
+		if (select_options) {
+			let select_options_content = ''
+			for (let index = 0; index < select_options.length; index++) {
+				const select_option = select_options[index]
+				const select_option_value = select_option.value
+				if (select_option_value != '') {
+					const select_option_text = select_option.text
+					select_options_content = select_options_content + '<div data-value="' + select_option_value + '" class="select__option-in">' + select_option_text + '</div>'
+				}
+			}
+			return select_options_content
+		}
+	}
+	function select_search(e) {
+		let select_block = e.target.closest('.select ').querySelector('.select__options')
+		let select_options = e.target.closest('.select ').querySelectorAll('.select__option-in')
+		let select_search_text = e.target.value.toUpperCase()
+
+		for (let i = 0; i < select_options.length; i++) {
+			let select_option = select_options[i]
+			let select_txt_value = select_option.textContent || select_option.innerText
+			if (select_txt_value.toUpperCase().indexOf(select_search_text) > -1) {
+				select_option.style.display = ''
+			} else {
+				select_option.style.display = 'none'
+			}
+		}
+	}
+	function selects_update_all() {
+		let selects = document.querySelectorAll('select')
+		if (selects) {
+			for (let index = 0; index < selects.length; index++) {
+				const select = selects[index]
+				select_item(select)
+			}
+		}
+	}
+
+	// Select
+
+	// Menu
+	const menuButton = document.querySelector('#nav-icon')
+	const navigationTop = document.querySelector('.header__menu')
+	const body = document.querySelector('body')
+	const bodyOverlay = document.querySelector('.body-overlay')
+
+	const toggleNavActive = () => {
+		menuButton.classList.toggle('_active')
+		navigationTop.classList.toggle('_active')
+		body.classList.toggle('_lock')
+		bodyOverlay.classList.toggle('_active')
+	}
+	menuButton.addEventListener('click', () => {
+		toggleNavActive()
+	})
+
+	bodyOverlay.addEventListener('click', () => {
+		toggleNavActive()
+	})
+	// Menu
+
+	/*
+	const body = document.querySelector('body')
+	const lockPadding = document.querySelectorAll('.lock-padding')
+	function bodyLock() {
+		const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px'
+
+		if (lockPadding.length > 0) {
+			for (let index = 0; index < lockPadding.length; index++) {
+				const el = lockPadding[index]
+				el.style.paddingRight = lockPaddingValue
+			}
+		}
+		body.style.paddingRight = lockPaddingValue
+		body.classList.add('lock')
+	}
+
+	function bodyUnLock() {
+		setTimeout(function () {
+			if (lockPadding.length > 0) {
+				for (let index = 0; index < lockPadding.length; index++) {
+					const el = lockPadding[index]
+					el.style.paddingRight = '0px'
+				}
+			}
+			body.style.paddingRight = '0px'
+			body.classList.remove('lock')
+		}, 800)
+	}
+	//data-micromodal-open
+
+	const btnMicromodalOpen = document.querySelectorAll('.btn-micromodal-open')
+	btnMicromodalOpen.forEach(elem => {
+		elem.addEventListener('click', event => {
+			event.preventDefault()
+			const btnType = event.target
+			console.log(btnType)
+
+			if (btnMicromodalOpen) {
+				const aria = document.querySelector('.modal[aria-hidden]')
+				if (!aria.getAttribute('aria-hidden')) {
+					console.log('open')
+					bodyLock()
+				} else {
+					console.log('close')
+					bodyUnLock()
+				}
+			}
+		})
+	})
+	*/
 })

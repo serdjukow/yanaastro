@@ -38,7 +38,7 @@ $accent: #ff5f6d;
             transition: transform 0.3s ease 0s;
             transform: translate(0, -50%) rotate(0deg);
             position: absolute;
-            right: 35px;
+            right: 25px;
             top: 50%;
         }
         &::after {
@@ -50,7 +50,7 @@ $accent: #ff5f6d;
             transition: transform 0.3s ease 0s;
             transform: translate(0, -50%) rotate(90deg);
             position: absolute;
-            right: 35px;
+            right: 25px;
             top: 50%;
         }
         &._active {
@@ -68,7 +68,7 @@ $accent: #ff5f6d;
         @include adaptiv-value("line-height", 21, 21, 1);
         font-weight: 400;
         display: none;
-        padding: 0px 0px 20px 10px;
+        padding: 0px 10px 20px 10px;
         color: $textcolor;
         p {
             
@@ -89,12 +89,6 @@ $accent: #ff5f6d;
 			flex-direction: column;
 		}
     }
-
-    // .spollers-block__item
-
-    &__item {
-    }
-
     // .spollers-block__item-title
 
     &__bottom-title {

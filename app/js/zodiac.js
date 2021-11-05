@@ -1,11 +1,11 @@
-let urlZodiac = '../zodiac.json'
+let urlZodiac = '../data/zodiac.json'
 
-async function load() {
-	let zodiacResponse = await fetch(urlZodiac)
+async function load(url) {
+	let zodiacResponse = await fetch(url)
 	const zodiacs = await zodiacResponse.json()
 
-	const toHTML_Zodiac = zodiacs => `
-			<div id="${zodiacs.name}" class="horoscope__item" data-btn="zodiac" data-micromodal-open="modal-news">
+	const toHTML_Zodiac = zodiacs => `	
+			<div id="${zodiacs.name}" class="horoscope__item btn-micromodal-open" data-btn="zodiac" data-micromodal-open="modal-news">
 			<div class="horoscope__img">
 				<img src="${zodiacs.img}" alt="${zodiacs.title}">
 			</div>
@@ -25,7 +25,7 @@ async function load() {
 		}
 	}
 	renderZodiacs()
-	const initModal = function() {
+	const initModal = function () {
 		MicroModal.init({
 			openTrigger: 'data-micromodal-open',
 			disableScroll: true,
@@ -36,4 +36,4 @@ async function load() {
 	}
 	initModal()
 }
-load()
+load(urlZodiac)

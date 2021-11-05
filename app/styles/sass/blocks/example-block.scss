@@ -34,6 +34,9 @@ body {
 
 .wrapper {
 	background-color: rgba(27, 30, 48, 0.96);
+	@include media-breakpoint-down(md) {
+		padding-top: 70px;
+	}
 }
 
 #nokey {
@@ -50,6 +53,7 @@ body {
 	padding: 0 15px;
 	margin: 0 auto;
 }
+
 .header {
 	position: relative;
 	z-index: 10;
@@ -65,29 +69,44 @@ body {
 		height: 100%;
 		z-index: 3;
 	}
+	@include media-breakpoint-down(md) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+		transition: 0.3s;
+		&:before {
+			background-color: #292e4b;
+		}
+	}
+	&.change {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+		transition: 0.3s;
+		&:before {
+			background-color: #292e4b;
+		}
+		.header__menu .header__list li:nth-child(3) {
+			border-right: 1px solid #3d3f55;
+			@include media-breakpoint-down(md) {
+				border-right: none;
+			}
+		}
+	}
 }
-.change {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 100;
-	transition: 0.3s;
-	&:before {
-		background-color: #292e4b;
-	}
-	.li_logo {
-		display: none;
-	}
-	.header__menu .header__list li:nth-child(3) {
-		border-right: 1px solid #3d3f55;
-	}
-}
+
 .header__body {
 	display: flex;
 	align-items: center;
 	position: relative;
-	padding: 20px 0 15px 0;
+	padding: 20px 15px 15px 0;
+	@include media-breakpoint-down(md) {
+		justify-content: flex-end;
+	}
 }
 .header__logo {
 	display: inline-flex;
@@ -110,6 +129,9 @@ body {
 	span {
 		font-weight: 400;
 		font-style: italic;
+	}
+	@include media-breakpoint-down(md) {
+		color: #333;
 	}
 }
 
@@ -151,6 +173,22 @@ body {
 
 .header__menu {
 	width: 100%;
+	@include media-breakpoint-down(md) {
+		position: fixed;
+		top: 60px;
+		right: -300px;
+		background-color: #fff;
+		z-index: 100;
+		height: 100%;
+		max-width: 300px;
+		padding: 20px;
+		transition: right 0.25s ease-in;
+		overflow-y: scroll !important;
+		&._active {
+			right: 0;
+			transition: right 0.25s ease-in;
+		}
+	}
 	.header__list {
 		display: flex;
 		position: relative;
@@ -159,10 +197,18 @@ body {
 		width: 100%;
 		z-index: 3;
 		list-style: none;
+		@include media-breakpoint-down(md) {
+			flex-direction: column;
+			overflow-y: scroll;
+		}
 		li {
 			position: relative;
 			padding: 0 20px;
 			border-right: 1px solid #3d3f55;
+			@include media-breakpoint-down(md) {
+				border-right: none;
+				margin-bottom: 20px;
+			}
 			.header__link {
 				font-weight: 700;
 				font-size: 15px;
@@ -171,9 +217,15 @@ body {
 				white-space: nowrap;
 				text-decoration: none;
 				transition: 0.2s all ease;
-				&:hover {
-					color: $accent;
-					transition: 0.2s all ease;
+				@media (any-hover: hover) {
+					&:hover {
+						color: $accent;
+						transition: 0.2s all ease;
+					}
+				}
+				@include media-breakpoint-down(md) {
+					color: #333;
+					font-size: 20px;
 				}
 			}
 			.header__link.active {
@@ -184,8 +236,10 @@ body {
 				border-right: none;
 			}
 			&.li_logo {
+				flex: 0 0 120px;
 				display: flex;
 				align-items: center;
+				justify-content: center;
 				padding: 20px;
 				border-right: none;
 				min-height: 120px;
@@ -196,26 +250,9 @@ body {
 						color: #ffffff;
 					}
 				}
-			}
-		}
-	}
-}
-
-@media (max-width: 1060px) {
-	.li_logo {
-		display: none;
-	}
-	.header__menu .header__list li:nth-child(3) {
-		border-right: 1px solid #3d3f55;
-	}
-}
-@media (max-width: 918px) {
-	.header__menu {
-		.header__list {
-			li {
-				padding: 0 10px;
-				.header__link {
-					font-weight: 400;
+				@include media-breakpoint-down(md) {
+					order: -1;
+					margin-bottom: 0;
 				}
 			}
 		}
@@ -650,8 +687,11 @@ footer {
 
 	&__items {
 		display: grid;
-		grid-template-columns: repeat(6, 1fr);
+		grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
 		gap: 10px;
+		@include media-breakpoint-down(md) {
+			grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+		}
 	}
 
 	// .horoscope__item
@@ -659,7 +699,6 @@ footer {
 	&__item {
 		border: 1px solid #6e6e6e;
 		border-radius: 8px;
-		width: 170px;
 		transition: background 0.25s ease-in;
 		padding: 20px;
 		cursor: pointer;
@@ -667,6 +706,11 @@ footer {
 			&:hover {
 				background: $bg-blue;
 			}
+		}
+		@include media-breakpoint-down(md) {
+			transition: background 0.25s ease-in;
+			padding: 5px;
+			cursor: pointer;
 		}
 	}
 
@@ -679,11 +723,16 @@ footer {
 		align-items: center;
 		justify-content: center;
 		margin-bottom: 20px;
-
+		user-select: none;
+		pointer-events: none;
 		img {
 			display: block;
 			max-width: 100%;
 			height: auto;
+		}
+		@include media-breakpoint-down(md)  {
+			height: 50px;
+			margin-bottom: 5px;
 		}
 	}
 
@@ -692,22 +741,37 @@ footer {
 	&__title {
 		color: #fff;
 		text-align: center;
-		h4 {
+		pointer-events: none;
+		margin-bottom: 30px;
+		h2 {
 			letter-spacing: 2px;
+		}
+		@include media-breakpoint-down(md) {
+			margin-bottom: 5px;
+			h4 {
+				font-size: 15px;
+			}
 		}
 	}
 
+	&__sub-title {
+		font-size: 20px;
+
+	}
 	// .horoscope__date
 
 	&__date {
 		color: #fff;
 		text-align: center;
+		@include media-breakpoint-down(md) {
+			display: none;
+		}
 	}
 }
 
 .element {
 	background-color: #fff;
-	padding: 20px;
+	padding: 0px;
 	// .element__title
 
 	&__title {
@@ -719,19 +783,41 @@ footer {
 	// .element__content
 
 	&__content {
-		
 	}
 
 	// .element__name
 
 	&__name {
 		text-transform: capitalize;
-		font-size: 18px;
+		font-size: 16px;
+		p {
+			margin-bottom: 0;
+		}
 	}
 
 	// .element__text
 
 	&__text {
 		font-size: 16px;
+	}
+}
+
+.body-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -10;
+	pointer-events: none;
+	background-color: rgba(#fff, 0.1);
+	transition: 0.25s ease-in-out;
+	@supports ((-webkit-backdrop-filter: blur(4px)) or (backdrop-filter: blur(4px))) {
+		backdrop-filter: blur(4px);
+	}
+	&._active {
+		z-index: 99;
+		pointer-events: visible;
+		transition: 0.25s ease-in-out;
 	}
 }

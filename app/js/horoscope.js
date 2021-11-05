@@ -1,67 +1,102 @@
-let xmlHoroContent = ''
-fetch('horo.xml').then(response => {
-	response.text().then(xml => {
-		xmlHoroContent = xml
+import convert from 'xml-js'
 
-		let parser = new DOMParser()
-		let xmlDOM = parser.parseFromString(xmlHoroContent, 'application/xml')
-		let elements = xmlDOM.querySelector('horo')
-		
-		const currentDate = {
-			yesterday: elements.childNodes[1].attributes.yesterday.nodeValue,
-			today: elements.childNodes[1].attributes.today.nodeValue,
-			tomorrow: elements.childNodes[1].attributes.tomorrow.nodeValue,
-			tomorrow02: elements.childNodes[1].attributes.tomorrow02.nodeValue,
+const requestURL = '../data/daily/com.xml'
+function sendRequest(url) {
+	return fetch(url).then(response => {
+		if (response.ok) {
+			response.text().then(xml => {
+				let elementsJson = convert.xml2json(xml, { compact: true, spaces: 4 })
+				const myObj = JSON.parse(elementsJson)
+				obj(myObj)
+				horoscopeSubTitle(myObj)
+			})
 		}
+	})
+}
+sendRequest(requestURL)
 
-		const toHTML_Horo = (horo) => `
+document.addEventListener('click', event => {
+	event.preventDefault()
+	let el = event.target
+	if (el.closest('.select__option-in[data-value]')) {
+		let currentUrl = `../data/daily/${el.dataset.value}.xml`
+		sendRequest(currentUrl)
+	}
+})
+
+const horoscopeSubTitle = json => {
+	document.querySelector('.horoscope__sub-title').innerHTML = `
+	Ежедневный с ${json.horo.date._attributes.yesterday} - по ${json.horo.date._attributes.tomorrow02}
+	`
+}
+
+const obj = json => {
+	const dateAttributes = json.horo.date._attributes
+	document.addEventListener('click', event => {
+		event.preventDefault()
+		let el = event.target
+		let parent = el.closest('.horoscope__item')
+		if (parent) {
+			let id = parent.id
+			const horoObj = Object.entries(json.horo)
+			const horo = horoObj.find(f => f[0] == id)
+			document.querySelector('.callback__row').innerHTML = ''
+			document.querySelector('.callback__row').innerHTML = toHTML_Horo(horo, dateAttributes)
+		}
+	})
+}
+
+const zodiacsTypeObject = {
+	aries: 'Овен',
+	taurus: 'Телец',
+	gemini: 'Близнецы',
+	cancer: 'Рак',
+	leo: 'Лев',
+	virgo: 'Дева',
+	libra: 'Весы',
+	scorpio: 'Скорпион',
+	sagittarius: 'Стрелец',
+	capricorn: 'Козерог',
+	aquarius: 'Водолей',
+	pisces: 'Рыбы',
+}
+
+const toHTML_Horo = (horoBody, date) => `
 		<div class="element">
+			<div class="element__title">				
+			${zodiacsTypeObject[horoBody[0]]}
+			</div>
 			<div class="element__content">
 				<div class="element__name">				
-					<p>${currentDate.yesterday}</p>
+					<p>${date.yesterday}</p>
 				</div>
 				<div class="element__text">
-					<p>${horo.children[0].textContent}</p>
+					<p>${horoBody[1].yesterday._text}</p>
 				</div>
 			</div>
 			<div class="element__content">
 				<div class="element__name">				
-					<p>${currentDate.today}</p>
+					<p>${date.today}</p>
 				</div>
 				<div class="element__text">
-					<p>${horo.children[1].textContent}</p>
+					<p>${horoBody[1].today._text}</p>
 				</div>
 			</div>
 			<div class="element__content">
 				<div class="element__name">				
-					<p>${currentDate.tomorrow}</p>
+					<p>${date.tomorrow}</p>
 				</div>
 				<div class="element__text">
-					<p>${horo.children[2].textContent}</p>
+					<p>${horoBody[1].tomorrow._text}</p>
 				</div>
 			</div>
 			<div class="element__content">
 				<div class="element__name">				
-					<p>${currentDate.tomorrow02}</p>
+					<p>${date.tomorrow02}</p>
 				</div>
 				<div class="element__text">
-					<p>${horo.children[3].textContent}</p>
+					<p>${horoBody[1].tomorrow02._text}</p>
 				</div>
 			</div>
 		</div>
 	`
-
-		document.addEventListener('click', event => {
-			event.preventDefault()
-			let el = event.target
-			let parent = el.closest('.horoscope__item')
-			let id = parent.id
-			//let x = event.target.childNodes[3].textContent
-			for (let xmlNode of elements.childNodes) {
-				if (xmlNode.nodeName == id) {
-					document.querySelector('.callback__row').innerHTML = toHTML_Horo(xmlNode)
-				}
-			}
-		})
-	})
-})

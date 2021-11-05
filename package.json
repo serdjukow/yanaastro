@@ -51,6 +51,8 @@
 		"@babel/polyfill": "^7.12.1",
 		"cors": "^2.8.5",
 		"micromodal": "^0.4.6",
-		"swiper": "^7.0.9"
+		"smooth-scrollbar": "^8.7.0",
+		"swiper": "^7.0.9",
+		"xml-js": "^1.6.11"
 	}
 }

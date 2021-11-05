@@ -2,7 +2,7 @@
 <!--#include virtual="/parts/header.html" -->
 <canvas id="nokey" width="800" height="800"></canvas>
 <div class="wrapper">
-	<header class="header" id="stick_menu">
+	<header class="header lock-padding" id="stick_menu">
 		<div class="header__body __container">
 			<nav class="header__menu">
 				<ul class="header__list">
@@ -33,11 +33,17 @@
 					</li>
 				</ul>
 			</nav>
+			<div id="nav-icon" class="open">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
 		</div>
 	</header>
 	<main class="page">
-
-
 		<section class="services __container section" data-active=".services">
 			<div class="services__title">
 				<h1>Yana Astro</h1>
@@ -111,8 +117,6 @@
 			</div>
 		</section>
 
-
-
 		<section class="feedback __container section">
 			<h2 class="feedback__title title-h2">Отзывы</h2>
 			<div class="feedback__row">
@@ -125,10 +129,25 @@
 			</div>
 		</section>
 
-		<section id="horoscope" class="horoscope">
+		<section id="horoscope" class="horoscope section">
 			<div class="horoscope__row __container">
-				<h2 class="horoscope__title title-h2">Гороскоп</h2>
-				<div id="horo-content" class="horoscope__items "></div>
+				<div class="horoscope__title">
+					<h2 class="title-h2">Гороскоп</h2>
+					<p class="horoscope__sub-title"></p>
+				</div>
+				<nav class="horoscope__nav">
+					<select class="horoscope__select">
+						<option value="com" selected>Общий</option>
+						<option value="bus">Бизнес</option>
+						<option value="hea">Здоровья</option>
+						<option value="cook">Кулинарный</option>
+						<option value="ero">Эротический</option>
+						<option value="mob">Мобильный</option>
+						<option value="lov">Любовный</option>
+					</select>
+				</nav>
+
+				<div id="horo-content" class="horoscope__items"></div>
 			</div>
 		</section>
 	</main>

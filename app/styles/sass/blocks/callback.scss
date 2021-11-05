@@ -1,10 +1,8 @@
 .callback {
-
 	&__row {
 		position: relative;
 	}
 	&__title {
-		
 	}
 	// .callback__item
 
@@ -35,7 +33,6 @@
 			border: none;
 			width: 100%;
 			cursor: default;
-			
 		}
 		// .form__field
 
@@ -43,16 +40,16 @@
 			display: flex;
 			flex-direction: column;
 			font-size: 18px;
-			@include adaptiv-value("line-height", 25, 22, 1);
+			@include adaptiv-value('line-height', 25, 22, 1);
 			margin-bottom: 10px;
 			border-bottom: 1px solid #d9d9d9;
 			background-color: transparent;
-			
+
 			&.field-message {
 				margin-bottom: 30px;
 			}
 			label {
-				@include adaptiv-value("line-height", 25, 22, 1);
+				@include adaptiv-value('line-height', 25, 22, 1);
 				color: #353535;
 				border: none;
 				margin-bottom: 0;
@@ -60,13 +57,13 @@
 			textarea {
 				resize: none;
 			}
-			input[type="text"] {
+			input[type='text'] {
 				font-size: inherit;
 			}
 			.field {
 				outline: none;
 				-moz-appearance: none;
-				@include adaptiv-value("line-height", 27, 24, 1);
+				@include adaptiv-value('line-height', 27, 24, 1);
 				color: #afafaf;
 				background-color: transparent;
 				border: none;
@@ -154,4 +151,8 @@
 		opacity: 1 !important;
 		z-index: 2;
 	}
+}
+.scrollbar-track ,
+.scrollbar-track-y {
+	background-color: $accent !important;
 }
