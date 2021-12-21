@@ -29,7 +29,7 @@
 						<a href="#" class="header__link button-go-to" data-goto=".horoscope">Гороскоп</a>
 					</li>
 					<li class="header__li">
-						<a href="#" class="header__link button-go-to" data-goto="footer">Контакты</a>
+						<a href="#" class="header__link button-go-to" data-goto=".dream-book">Сонник</a>
 					</li>
 				</ul>
 			</nav>
@@ -89,7 +89,7 @@
 			</div>
 		</section>
 
-		<section class="abaut-me __container section">
+		<section class="abaut-me section">
 			<div class="abaut-me__row">
 				<div class="abaut-me__bg">
 					<figure class="abaut-me__icon">
@@ -117,7 +117,7 @@
 			</div>
 		</section>
 
-		<section class="feedback __container section">
+		<section class="feedback section">
 			<h2 class="feedback__title title-h2">Отзывы</h2>
 			<div class="feedback__row">
 				<div class="swiper feedback-slider">
@@ -148,6 +148,17 @@
 				</nav>
 
 				<div id="horo-content" class="horoscope__items"></div>
+			</div>
+		</section>
+
+		<section class="dream-book section">
+			<div class="dream-book__row __container">
+				<h2 class="dream-book__title title-h2">Сонник</h2>
+				<div id="dream-book-search" class="dream-book__search">
+					<label for="search">Введите ключевое слово из вашего сна:</label>
+					<input id="search" type="text" />
+				</div>
+				<div id="dream-book" class="dream-book__body"></div>
 			</div>
 		</section>
 	</main>

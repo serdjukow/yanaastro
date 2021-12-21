@@ -112,6 +112,7 @@ body {
 	display: inline-flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	position: relative;
 	overflow: hidden;
 	max-width: 100px;
@@ -365,6 +366,9 @@ body {
 
 .abaut-me {
 	margin-bottom: 50px;
+	background-color: $bg-blue;
+	padding: 40px 0 60px 0;
+
 	// .services__icon
 
 	&__icon {
@@ -382,7 +386,8 @@ body {
 	// .abaut-me__row
 
 	&__row {
-		margin-bottom: 50px;
+		max-width: 1290px;
+		margin: 0 auto;
 		background-image: url(../images/dist/about-bg-2.jpg);
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -432,33 +437,17 @@ body {
 footer {
 	position: relative;
 	z-index: 10;
-	padding-bottom: 20px;
+	padding: 20px 0;
+	background-color: $bg-blue;
 }
 .footer__top {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 15px;
-	box-sizing: border-box;
-	margin-bottom: 15px;
-	nav {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		padding: 2rem;
-		border-radius: 8px;
-		border-bottom: 1px solid #333;
-		border-right: 1px solid #333;
-		background: $bg-blue;
-	}
+	display: flex;
+	justify-content: center;
+
 	.footer__top_sotial-cotnainer {
 		text-align: center;
 		min-height: 200px;
 		padding: 40px;
-		border-radius: 8px;
-		border-bottom: 1px solid #333;
-		border-right: 1px solid #333;
-		background: $bg-blue;
 		.footer__logo {
 			.footer__logo-link {
 				max-width: 100px;
@@ -508,75 +497,6 @@ footer {
 	}
 }
 
-.footerRight {
-	min-height: 200px;
-	box-sizing: border-box;
-	border-radius: 8px;
-	border-bottom: 1px solid #333;
-	border-right: 1px solid #333;
-	background: $bg-blue;
-	padding: 10px;
-	form {
-		width: 100%;
-		input {
-			display: block;
-			width: 100%;
-			box-sizing: border-box;
-			background-color: transparent;
-			border-radius: 3px;
-			border: 1px solid #3d3f55;
-			padding: 10px;
-			margin-bottom: 15px;
-			color: #fff;
-			transition: 0.2s;
-		}
-		input:focus::-webkit-input-placeholder {
-			color: transparent;
-			transition: 0.3s;
-		}
-		input:focus::-moz-placeholder {
-			color: transparent;
-			transition: 0.3s;
-		}
-		input:focus:-moz-placeholder {
-			color: transparent;
-			transition: 0.3s;
-		}
-		input:focus:-moz-placeholder {
-			color: transparent;
-			transition: 0.3s;
-		}
-		input:focus:-ms-input-placeholder {
-			color: transparent;
-			transition: 0.3s;
-		}
-		.youre-message {
-			display: block;
-			box-sizing: border-box;
-			padding: 10px 10px 50px 10px;
-			width: 100%;
-			background-color: transparent;
-			border-radius: 3px;
-			border: 1px solid #3d3f55;
-			margin-bottom: 10px;
-			color: #fff;
-			transition: 0.3s;
-		}
-		textarea:focus::-webkit-input-placeholder {
-			color: transparent;
-		}
-		textarea:focus:-moz-placeholder {
-			color: transparent;
-		} /* FireFox 4-18 */
-		textarea:focus::-moz-placeholder {
-			color: transparent;
-		} /* FireFox 19+ */
-		textarea:focus:-ms-input-placeholder {
-			color: transparent;
-		} /* Internet Explorer 10+ */
-	}
-}
-
 .btn {
 	display: flex;
 	justify-content: center;
@@ -607,62 +527,13 @@ footer {
 	padding: 20px;
 	border-top: 1px solid #222;
 	box-shadow: inset 0 1px #404040;
-	border-radius: 8px;
-	border-bottom: 1px solid #333;
-	border-right: 1px solid #333;
-	background: $bg-blue;
 	.copy {
 		font-size: 16px;
 		color: #fff;
 	}
 }
-@media (max-width: 1078px) {
-	.footer__top {
-		grid-gap: 10px;
-		margin-bottom: 10px;
-		nav {
-			padding: 80px;
-		}
-		.footer__top_sotial-cotnainer {
-			padding: 40px 20px;
-			.footer__logo {
-				.footer__logo-link {
-					max-width: 100px;
-				}
-			}
-			.footer__info {
-				font-size: 16px;
-				margin: 10px 0;
-			}
-			.social {
-				width: 95%;
-				margin: 20px auto 10px auto;
-				.social-element {
-					width: 45px;
-					height: 45px;
-				}
-			}
-		}
-	}
-}
+
 @include media-breakpoint-down(md) {
-	.footer__top {
-		grid-template-columns: 1fr;
-		grid-gap: 5px;
-		box-sizing: border-box;
-		margin-bottom: 5px;
-		nav {
-		}
-		.footer__top_sotial-cotnainer {
-			.footer__info {
-				font-size: 16px;
-				margin: 10px 0;
-			}
-			.social {
-				margin: 20px auto 10px auto;
-			}
-		}
-	}
 	.footer__bottom {
 		padding: 10px;
 		.copy {
@@ -671,11 +542,6 @@ footer {
 	}
 }
 /*----------------------Footer--------------------------------*/
-
-.section {
-	min-height: 500px;
-}
-
 .horoscope {
 	margin-bottom: 50px;
 	// .horoscope__row
@@ -730,7 +596,7 @@ footer {
 			max-width: 100%;
 			height: auto;
 		}
-		@include media-breakpoint-down(md)  {
+		@include media-breakpoint-down(md) {
 			height: 50px;
 			margin-bottom: 5px;
 		}
@@ -756,7 +622,6 @@ footer {
 
 	&__sub-title {
 		font-size: 20px;
-
 	}
 	// .horoscope__date
 
@@ -820,4 +685,8 @@ footer {
 		pointer-events: visible;
 		transition: 0.25s ease-in-out;
 	}
+}
+
+.zodiak-preview {
+	border: none !important;
 }

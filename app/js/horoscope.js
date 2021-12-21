@@ -1,32 +1,34 @@
 import convert from 'xml-js'
 
 const requestURL = '../data/daily/com.xml'
-function sendRequest(url) {
-	return fetch(url).then(response => {
-		if (response.ok) {
-			response.text().then(xml => {
-				let elementsJson = convert.xml2json(xml, { compact: true, spaces: 4 })
-				const myObj = JSON.parse(elementsJson)
-				obj(myObj)
-				horoscopeSubTitle(myObj)
-			})
-		}
-	})
+
+async function sendRequest(url) {
+	const response = await fetch(url)
+	const xml = await response.text()
+	let elementsJson = convert.xml2json(xml, { compact: true, spaces: 4 })
+	const myObj = JSON.parse(elementsJson)
+	obj(myObj)
+	horoscopeSubTitle(myObj)
 }
 sendRequest(requestURL)
 
 document.addEventListener('click', event => {
+	const selectValue = document.querySelector('.select__title')
 	event.preventDefault()
 	let el = event.target
 	if (el.closest('.select__option-in[data-value]')) {
 		let currentUrl = `../data/daily/${el.dataset.value}.xml`
 		sendRequest(currentUrl)
+		selectValue.classList.add('_load')
+		setTimeout(() => {
+			selectValue.classList.remove('_load')
+		}, 1000)
 	}
 })
 
 const horoscopeSubTitle = json => {
 	document.querySelector('.horoscope__sub-title').innerHTML = `
-	Ежедневный с ${json.horo.date._attributes.yesterday} - по ${json.horo.date._attributes.tomorrow02}
+	Ежедневный ${json.horo.date._attributes.yesterday} - ${json.horo.date._attributes.tomorrow02}
 	`
 }
 

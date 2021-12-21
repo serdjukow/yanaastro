@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		} else {
 			header.classList.remove('change')
 			if (window.innerWidth > 767.98) {
-				headerLogo.style.display = 'block'
+				headerLogo.style.display = 'flex'
 			}
 		}
 	})
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let scrollDistance = window.scrollY
 
 		document.querySelectorAll('.section').forEach((el, i) => {
-			if ((el.offsetTop - document.querySelector('.header__body').clientHeight - 100) <= scrollDistance) {
+			if (el.offsetTop - document.querySelector('.header__body').clientHeight - 100 <= scrollDistance) {
 				document.querySelectorAll('.header__list .header__link').forEach(el => {
 					if (el.classList.contains('active')) {
 						el.classList.remove('active')

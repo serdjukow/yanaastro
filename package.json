@@ -6,7 +6,9 @@
 	"author": "WebDesign Master",
 	"type": "module",
 	"browserslist": [
-		"last 10 versions"
+		"last 2 versions",
+		"not ie <= 12",
+		"not ie_mob <= 12"
 	],
 	"license": "ISC",
 	"scripts": {
@@ -52,6 +54,7 @@
 		"cors": "^2.8.5",
 		"micromodal": "^0.4.6",
 		"smooth-scrollbar": "^8.7.0",
+		"stream-browserify": "^3.0.0",
 		"swiper": "^7.0.9",
 		"xml-js": "^1.6.11"
 	}

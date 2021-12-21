@@ -1,8 +1,12 @@
 .feedback {
 	margin-bottom: 50px;
+	background-color: $bg-blue;
+	padding: 40px 0 60px 0;
 }
 
 .feedback__row {
+	max-width: 1290px;
+	margin: 0 auto;
 	padding: 0 40px;
 	position: relative;
 	@include media-breakpoint-down(md) {
@@ -23,7 +27,7 @@
     background-size: cover;
     width: 300px;
     min-height: 300px;
-    background-color: $bg-blue;
+    background-color: #fff;
     overflow: hidden;
 	padding: 20px;
 	border-radius: 8px;
@@ -64,7 +68,7 @@
 }
 
 .feedback-slider {
-	color: #fff;
+	color: #333;
 	
 	// .feedback-slider__title
 
@@ -83,6 +87,7 @@
 		flex: 1 1 100%;
 		margin-bottom: 15px;
 		font-style: italic;
+		font-weight: 500;
 		i {
 			color: $accent;
 			&:first-child {
